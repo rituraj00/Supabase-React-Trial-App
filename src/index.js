@@ -11,7 +11,8 @@ const supabase = createClient("https://ywiepbwlvqdctutfvila.supabase.co", "eyJhb
 async function getCountries(){
   const countries = await supabase.from('countries').select()
 
-  console.log(countries);
+  countries = countries.filter(c => c.name.split(" ").length > 1)
+  
 }
 
 getCountries()
